@@ -1,6 +1,8 @@
 // Include React
 import React, { Component } from 'react';
 import { Link, Route } from 'react-router-dom';
+
+
 // Helper to make Ajax requests to the NYT API
 import helpers from "../utils/helpers";
 

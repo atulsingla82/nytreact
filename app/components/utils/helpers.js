@@ -10,8 +10,10 @@ export default {
 
 runQuery(topic,startYear,endYear) {
 
-const queryURL = "https://api.nytimes.com/svc/search/v2/articlesearch.json?api-key=" + nytAPI + "&q="+ topic + "&begin_date=" + startYear + "0101" + "&end_date=" + endYear + "1231";
 
+  
+const queryURL = "https://www.api.nytimes.com/svc/search/v2/articlesearch.json?api-key=" + nytAPI + "&q="+ topic + "&begin_date=" + startYear + "19000101" + "&end_date=" + endYear + "20171231";
+// const queryURL =`https://www.api.nytimes.com/svc/search/v2/articlesearch.json?api-key=6fdc00b45fa24824895ec92f1f45a0ad&q${topic}&begin_date=${startYear}0101&end_date=${endYear}1231`;
 return axios.get(queryURL).then(function(response){
 
 let results= [];
@@ -28,12 +30,13 @@ if (response.data.results[0]) {
       }
    });
 
-},
-getHistory: function(){
+  },
+
+    getHistory: function(){
     return axios.get('/api/saved');
   },
 
-  postHistory: function(topic){
+    postHistory: function(topic){
     return axios.post('/api/saved', {article: topic});
   },
 
@@ -43,6 +46,6 @@ getHistory: function(){
 
 
 
-};
+  };
 
 

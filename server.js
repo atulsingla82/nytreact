@@ -30,7 +30,8 @@ app.use(express.static("./public"));
 // -------------------------------------------------
 
 //connecting to MongoDB
-mongoose.connect('mongodb://localhost/nyt_articles');
+
+mongoose.connect("mongodb://localhost/nyt_articles");
 const db = mongoose.connection;
 
 db.on("error", (err) => {

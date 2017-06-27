@@ -2,7 +2,7 @@
 
 import React from 'react';
 
-// Create the child component 
+// Create the child component.
 
 class Form extends React.Component {
 
@@ -14,7 +14,7 @@ constructor(props) {
 
 }
 
-// These funcitons will respond to the user input 
+// These funcitons will respond to the user input.
 
 handleTopicChange(event){
 

@@ -22,7 +22,7 @@ console.log("article deleted");
 
 }
 
-// render the function
+// Render the function
 
 render () {
 
@@ -42,35 +42,18 @@ return(
            return(
           <li key={search._id}>
           <strong><a href={search.web_url} className="left-align" target="_blank">{search.title}</a></strong>
-                    <i> {search.pub_date.substring(0,10)}</i>
+                    
                   <span>
-                    <button className = "btn btn-primary" onClick={this.handleDelete} value={search._id}>Remove</button>
+                    <button className = "btn btn-primary" onClick={search.handleDelete} value={search._id}>Remove</button>
                   </span>
                 </li>
+             )
 
-
-
-           	)
-
-
-
-
-            })}
-
-
-
+             })}
 
                 </div>
                 </div>
-
-
-
-
-	)
-
-
-
-
+            )
 
 }
     

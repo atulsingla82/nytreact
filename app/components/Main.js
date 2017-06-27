@@ -12,9 +12,6 @@ import History from "./children/History";
 // Helper to make Ajax requests to the NYT API
 import helpers from "./utils/helpers";
 
-// Including the Link component from React Router to navigate within our application without full page reloads
-// import {Link, Route, BrowserRouter as Router} from 'react-router-dom';
-
 
 // Creating the Main compement
 
