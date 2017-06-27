@@ -6,6 +6,8 @@ const bodyParser = require("body-parser");
 const logger = require("morgan");
 const mongoose = require("mongoose");
 
+// Set mongoose to leverage built in JavaScript ES6 Promises
+mongoose.Promise = Promise;
 
 // Require the Schema
 
@@ -29,9 +31,22 @@ app.use(express.static("./public"));
 
 // -------------------------------------------------
 
-//connecting to MongoDB
+//Connecting to MongoDB
 
-mongoose.connect("mongodb://localhost/nyt_articles");
+const databaseUri = mongoose.connect("mongodb://localhost/newsdb");
+
+if (process.env.MONGODB_URI) {
+
+  mongoose.connect(process.env.MONGODB_URI);
+
+} else {
+
+  mongoose.connect(databaseUri);
+}
+
+
+// -------------------------------------------------
+
 const db = mongoose.connection;
 
 db.on("error", (err) => {
@@ -53,7 +68,7 @@ res.sendFile(__dirname + "/public/index.html")
 });
 
 
-//grabs all saved articles
+//Grabs all saved articles
 
 app.get("/api/saved", function(req, res){
   Article.find({}).sort([
