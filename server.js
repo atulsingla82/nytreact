@@ -33,7 +33,7 @@ app.use(express.static("./public"));
 
 //Connecting to MongoDB
 
-const databaseUri = mongoose.connect("mongodb://localhost/newsdb");
+// mongoose.connect("mongodb://localhost/newsdb");
 
 if (process.env.MONGODB_URI) {
 
@@ -41,7 +41,7 @@ if (process.env.MONGODB_URI) {
 
 } else {
 
-  mongoose.connect(databaseUri);
+  mongoose.connect("mongodb://localhost/newsdb");
 }
 
 
